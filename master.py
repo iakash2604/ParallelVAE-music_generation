@@ -18,7 +18,9 @@ dec_denseLayerSizes = [20, 20]
 dec_denseLayerActivations = ['relu', 'relu']
 dec_dropouts = [0, 0]
 dec_batchnorms = [False, False]
+inf_layerSize = 20
 
-myModel = multiVAE(sampleLen, numUnits, enc_denseLayerSizes, enc_denseLayerActivations, enc_dropouts, enc_batchnorms, dec_denseLayerSizes, dec_denseLayerActivations, dec_dropouts, dec_batchnorms)
+myModel = multiVAE(sampleLen, numUnits, enc_denseLayerSizes, enc_denseLayerActivations, enc_dropouts, enc_batchnorms, dec_denseLayerSizes, dec_denseLayerActivations, dec_dropouts, dec_batchnorms, inf_layerSize)
 
-myModel.network()
+myModel.createFullNetwork()
+myModel.createGenModel()
