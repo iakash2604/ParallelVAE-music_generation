@@ -77,7 +77,11 @@ class multiVAE:
 		self.trainModel = Model(inputs=m, outputs=m_)
 		plot_model(self.trainModel, to_file='multiVAE.png')
 
-	def createGenModel(self):
+	def trainFullNetwork(self):
+
+		return None
+
+	def extractGenModel(self):
 		temp = len(self.dec_batchnorms)
 		self.inf_layer = Input(shape = self.trainModel.get_layer('inf_layer').output_shape, name='gen_input')
 		for i in range(self.numUnits):
@@ -90,4 +94,3 @@ class multiVAE:
 
 			self.genModel[i] = Model(inputs=self.inf_layer, outputs=temp_layer)
 			plot_model(self.genModel[i], to_file='genModel'+str(i+1)+'.png')
-		
